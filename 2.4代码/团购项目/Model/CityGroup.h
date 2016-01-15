@@ -13,5 +13,5 @@
 @property(nonatomic,strong)NSArray *cities;
 @property(nonatomic,copy)NSString *title;
 
-
+-(NSArray*)getModelArray;
 @end

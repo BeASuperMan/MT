@@ -11,15 +11,6 @@
             <rect key="frame" x="0.0" y="0.0" width="376" height="393"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e9m-4j-OjJ">
-                    <rect key="frame" x="0.0" y="0.0" width="188" height="393"/>
-                    <animations/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <connections>
-                        <outlet property="dataSource" destination="iN0-l3-epB" id="qeo-Co-bd2"/>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="Ttv-1H-HNv"/>
-                    </connections>
-                </tableView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="sWN-HK-mff">
                     <rect key="frame" x="188" y="0.0" width="188" height="393"/>
                     <animations/>
@@ -27,6 +18,15 @@
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="gXB-p7-jmO"/>
                         <outlet property="delegate" destination="iN0-l3-epB" id="aOp-hD-eaT"/>
+                    </connections>
+                </tableView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="e9m-4j-OjJ">
+                    <rect key="frame" x="0.0" y="0.0" width="188" height="393"/>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="iN0-l3-epB" id="qeo-Co-bd2"/>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="Ttv-1H-HNv"/>
                     </connections>
                 </tableView>
             </subviews>
@@ -49,7 +49,7 @@
                 <outlet property="leftTV" destination="e9m-4j-OjJ" id="CZ3-MH-s0N"/>
                 <outlet property="rightTV" destination="sWN-HK-mff" id="rzR-lv-f5s"/>
             </connections>
-            <point key="canvasLocation" x="306" y="263"/>
+            <point key="canvasLocation" x="264" y="254.5"/>
         </view>
     </objects>
 </document>

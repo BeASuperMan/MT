@@ -10,6 +10,7 @@
 #import "NavItem.h"
 #import "PopViewController.h"
 #import "SecondPopViewController.h"
+#import "CityGroup.h"
 
 @interface FirstViewController (){
     UIBarButtonItem *firstItem;
@@ -37,6 +38,12 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    
+    CityGroup *model = [[CityGroup alloc]init];
+    NSArray *arr = [model getModelArray];
+    for (CityGroup* model in arr) {
+        NSLog(@"%@",model.title);
+    }
 
 }
 
@@ -85,10 +92,14 @@ static NSString * const reuseIdentifier = @"Cell";
 -(void)creatSecondPopver
 {
     SecondPopViewController *svc = [[SecondPopViewController alloc]initWithNibName:@"SecondPopViewController" bundle:nil];
-    
-//    SecondPopViewController *secondVC =[SecondPopViewController new];
+
     UIPopoverController *pop = [[UIPopoverController alloc]initWithContentViewController:svc];
     [pop presentPopoverFromBarButtonItem:secondItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+#pragma mark - 第三个下拉菜单
+-(void)creatThirdPopver
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
