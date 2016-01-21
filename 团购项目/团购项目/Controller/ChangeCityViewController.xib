@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangeCityViewController">
             <connections>
+                <outlet property="coverView" destination="J8N-71-6FO" id="u1b-jh-1Yf"/>
+                <outlet property="searchBar" destination="W8x-LJ-Pa7" id="M4O-qv-PEl"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -21,6 +23,9 @@
                         <constraint firstAttribute="height" constant="44" id="P5V-Az-NoQ"/>
                     </constraints>
                     <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="Kez-KN-1LC"/>
+                    </connections>
                 </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="vWo-Mw-KH0">
                     <rect key="frame" x="0.0" y="49" width="339" height="275"/>
@@ -30,6 +35,10 @@
                         <outlet property="delegate" destination="-1" id="nPo-wI-SG4"/>
                     </connections>
                 </tableView>
+                <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J8N-71-6FO" userLabel="蒙版">
+                    <rect key="frame" x="0.0" y="44" width="339" height="280"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
@@ -37,6 +46,10 @@
                 <constraint firstAttribute="trailing" secondItem="vWo-Mw-KH0" secondAttribute="trailing" id="K6j-0y-gmZ"/>
                 <constraint firstItem="vWo-Mw-KH0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KfP-LX-lGN"/>
                 <constraint firstItem="vWo-Mw-KH0" firstAttribute="top" secondItem="W8x-LJ-Pa7" secondAttribute="bottom" constant="5" id="LSJ-7N-Bhd"/>
+                <constraint firstItem="J8N-71-6FO" firstAttribute="top" secondItem="W8x-LJ-Pa7" secondAttribute="bottom" id="Qew-dV-wmh"/>
+                <constraint firstAttribute="trailing" secondItem="J8N-71-6FO" secondAttribute="trailing" id="TdZ-j8-SkP"/>
+                <constraint firstItem="J8N-71-6FO" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fry-2E-ova"/>
+                <constraint firstAttribute="bottom" secondItem="J8N-71-6FO" secondAttribute="bottom" id="l4g-Mn-kzU"/>
                 <constraint firstItem="W8x-LJ-Pa7" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ldJ-MD-Ffd"/>
                 <constraint firstAttribute="trailing" secondItem="W8x-LJ-Pa7" secondAttribute="trailing" id="qhg-n7-aPu"/>
                 <constraint firstItem="W8x-LJ-Pa7" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="u06-NL-kfM"/>

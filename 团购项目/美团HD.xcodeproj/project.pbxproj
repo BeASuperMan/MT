@@ -24,6 +24,9 @@
 		09B4A5E01C51153100BEA3D1 /* CItyGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5DF1C51153100BEA3D1 /* CItyGroupModel.m */; };
 		09B4A5E41C511DC300BEA3D1 /* ChangeCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5E21C511DC300BEA3D1 /* ChangeCityViewController.m */; };
 		09B4A5E51C511DC300BEA3D1 /* ChangeCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B4A5E31C511DC300BEA3D1 /* ChangeCityViewController.xib */; };
+		09B4A5EC1C512BE400BEA3D1 /* UIView+AutoLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5EB1C512BE400BEA3D1 /* UIView+AutoLayout.m */; };
+		09B4A5F51C513D6F00BEA3D1 /* SearchCityResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5F41C513D6F00BEA3D1 /* SearchCityResultViewController.m */; };
+		09B4A5F81C513F5B00BEA3D1 /* Cities.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5F71C513F5B00BEA3D1 /* Cities.m */; };
 		405209C71B12E4DB00837D23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 405209C61B12E4DB00837D23 /* main.m */; };
 		405209CA1B12E4DB00837D23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405209C91B12E4DB00837D23 /* AppDelegate.m */; };
 		405209D21B12E4DB00837D23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405209D11B12E4DB00837D23 /* Images.xcassets */; };
@@ -67,6 +70,12 @@
 		09B4A5E11C511DC300BEA3D1 /* ChangeCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeCityViewController.h; sourceTree = "<group>"; };
 		09B4A5E21C511DC300BEA3D1 /* ChangeCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCityViewController.m; sourceTree = "<group>"; };
 		09B4A5E31C511DC300BEA3D1 /* ChangeCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeCityViewController.xib; sourceTree = "<group>"; };
+		09B4A5EA1C512BE400BEA3D1 /* UIView+AutoLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AutoLayout.h"; sourceTree = "<group>"; };
+		09B4A5EB1C512BE400BEA3D1 /* UIView+AutoLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AutoLayout.m"; sourceTree = "<group>"; };
+		09B4A5F31C513D6F00BEA3D1 /* SearchCityResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SearchCityResultViewController.h; sourceTree = "<group>"; };
+		09B4A5F41C513D6F00BEA3D1 /* SearchCityResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SearchCityResultViewController.m; sourceTree = "<group>"; };
+		09B4A5F61C513F5B00BEA3D1 /* Cities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cities.h; sourceTree = "<group>"; };
+		09B4A5F71C513F5B00BEA3D1 /* Cities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cities.m; sourceTree = "<group>"; };
 		405209C11B12E4DB00837D23 /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405209C51B12E4DB00837D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405209C61B12E4DB00837D23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +120,8 @@
 				09B4A5B71C50EB8400BEA3D1 /* PopViewController.m */,
 				09B4A5AE1C50DF5000BEA3D1 /* MyNavController.h */,
 				09B4A5AF1C50DF5000BEA3D1 /* MyNavController.m */,
+				09B4A5F31C513D6F00BEA3D1 /* SearchCityResultViewController.h */,
+				09B4A5F41C513D6F00BEA3D1 /* SearchCityResultViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -122,6 +133,8 @@
 				09B4A5CE1C50F10400BEA3D1 /* CategorlyModel.m */,
 				09B4A5DE1C51153100BEA3D1 /* CItyGroupModel.h */,
 				09B4A5DF1C51153100BEA3D1 /* CItyGroupModel.m */,
+				09B4A5F61C513F5B00BEA3D1 /* Cities.h */,
+				09B4A5F71C513F5B00BEA3D1 /* Cities.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,12 +163,22 @@
 		09B4A5C41C50F09E00BEA3D1 /* PlistData */ = {
 			isa = PBXGroup;
 			children = (
+				09B4A5E91C512BE400BEA3D1 /* extension */,
 				09B4A5C51C50F09E00BEA3D1 /* categories.plist */,
 				09B4A5C61C50F09E00BEA3D1 /* cities.plist */,
 				09B4A5C71C50F09E00BEA3D1 /* cityGroups.plist */,
 				09B4A5C81C50F09E00BEA3D1 /* sorts.plist */,
 			);
 			path = PlistData;
+			sourceTree = "<group>";
+		};
+		09B4A5E91C512BE400BEA3D1 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				09B4A5EA1C512BE400BEA3D1 /* UIView+AutoLayout.h */,
+				09B4A5EB1C512BE400BEA3D1 /* UIView+AutoLayout.m */,
+			);
+			path = extension;
 			sourceTree = "<group>";
 		};
 		405209B81B12E4DB00837D23 = {
@@ -327,11 +350,14 @@
 			files = (
 				09B4A5E01C51153100BEA3D1 /* CItyGroupModel.m in Sources */,
 				09B4A5BB1C50EC7900BEA3D1 /* PopView.m in Sources */,
+				09B4A5F81C513F5B00BEA3D1 /* Cities.m in Sources */,
 				09B4A5E41C511DC300BEA3D1 /* ChangeCityViewController.m in Sources */,
 				09B4A5B81C50EB8400BEA3D1 /* PopViewController.m in Sources */,
 				405209CA1B12E4DB00837D23 /* AppDelegate.m in Sources */,
+				09B4A5EC1C512BE400BEA3D1 /* UIView+AutoLayout.m in Sources */,
 				09B4A5AD1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m in Sources */,
 				405209C71B12E4DB00837D23 /* main.m in Sources */,
+				09B4A5F51C513D6F00BEA3D1 /* SearchCityResultViewController.m in Sources */,
 				09B4A5B01C50DF5000BEA3D1 /* MyNavController.m in Sources */,
 				09B4A5CF1C50F10400BEA3D1 /* CategorlyModel.m in Sources */,
 				09B4A5B31C50E13200BEA3D1 /* NavItem.m in Sources */,

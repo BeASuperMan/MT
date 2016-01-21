@@ -8,10 +8,16 @@
 
 #import "ChangeCityViewController.h"
 #import "CItyGroupModel.h"
-@interface ChangeCityViewController ()<UITableViewDelegate,UITableViewDataSource>
+#import "UIView+AutoLayout.h"
+#import "SearchCityResultViewController.h"
+
+@interface ChangeCityViewController ()<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 {
     NSArray *_dataArray;
 }
+@property (weak, nonatomic) IBOutlet UIView *coverView;//蒙版（遮盖）
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (strong, nonatomic) SearchCityResultViewController *searchResultVC;
 
 @end
 
@@ -60,11 +66,47 @@
     return model.tittle;
     
 }
+#pragma mark - UISearchBar
+-(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
+{
+    self.coverView.hidden = NO;
+    //优化，隐藏导航栏当编辑的时候
+    [self.navigationController setNavigationBarHidden:YES animated:YES];
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
+-(void)searchBarTextDidEndEditing:(UISearchBar *)searchBar
+{
+        self.coverView.hidden = YES;
+    //优化，隐藏导航栏当结束编辑的时候
+    [self.navigationController setNavigationBarHidden:NO animated:NO];
+}
+
+-(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if (searchText.length) {
+        self.searchResultVC.view.hidden = NO;
+        self.searchResultVC.searchText  = searchText;//传值
+    }
+    else
+    {
+                self.searchResultVC.view.hidden = YES;
+    }
+}
+#pragma mark - 创建搜索结果控制器
+- (SearchCityResultViewController *)searchResultVC{
+    //懒加在
+    if (!_searchResultVC) {
+        self.searchResultVC = [[SearchCityResultViewController alloc]init];
+        //将搜索结果VC添加到当前控制器中
+        [self.view addSubview:_searchResultVC.view];
+        //添加约束 设置搜索结果控制器的尺寸位置
+        [self.searchResultVC.view autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeTop];
+        //让searchResultVC的顶部 贴着搜索框的底部  不遮盖住搜索框
+        [self.searchResultVC.view autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.searchBar];
+    }
+    return _searchResultVC;
+}
+
 
 /*
 #pragma mark - Navigation
