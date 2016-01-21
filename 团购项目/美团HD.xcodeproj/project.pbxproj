@@ -22,6 +22,8 @@
 		09B4A5DC1C51118E00BEA3D1 /* SecondPopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5DA1C51118E00BEA3D1 /* SecondPopViewController.m */; };
 		09B4A5DD1C51118E00BEA3D1 /* SecondPopViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B4A5DB1C51118E00BEA3D1 /* SecondPopViewController.xib */; };
 		09B4A5E01C51153100BEA3D1 /* CItyGroupModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5DF1C51153100BEA3D1 /* CItyGroupModel.m */; };
+		09B4A5E41C511DC300BEA3D1 /* ChangeCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5E21C511DC300BEA3D1 /* ChangeCityViewController.m */; };
+		09B4A5E51C511DC300BEA3D1 /* ChangeCityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B4A5E31C511DC300BEA3D1 /* ChangeCityViewController.xib */; };
 		405209C71B12E4DB00837D23 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 405209C61B12E4DB00837D23 /* main.m */; };
 		405209CA1B12E4DB00837D23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 405209C91B12E4DB00837D23 /* AppDelegate.m */; };
 		405209D21B12E4DB00837D23 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 405209D11B12E4DB00837D23 /* Images.xcassets */; };
@@ -62,6 +64,9 @@
 		09B4A5DB1C51118E00BEA3D1 /* SecondPopViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondPopViewController.xib; sourceTree = "<group>"; };
 		09B4A5DE1C51153100BEA3D1 /* CItyGroupModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CItyGroupModel.h; sourceTree = "<group>"; };
 		09B4A5DF1C51153100BEA3D1 /* CItyGroupModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CItyGroupModel.m; sourceTree = "<group>"; };
+		09B4A5E11C511DC300BEA3D1 /* ChangeCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangeCityViewController.h; sourceTree = "<group>"; };
+		09B4A5E21C511DC300BEA3D1 /* ChangeCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangeCityViewController.m; sourceTree = "<group>"; };
+		09B4A5E31C511DC300BEA3D1 /* ChangeCityViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangeCityViewController.xib; sourceTree = "<group>"; };
 		405209C11B12E4DB00837D23 /* 美团HD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "美团HD.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		405209C51B12E4DB00837D23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		405209C61B12E4DB00837D23 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -98,6 +103,9 @@
 				09B4A5AC1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m */,
 				09B4A5D91C51118E00BEA3D1 /* SecondPopViewController.h */,
 				09B4A5DA1C51118E00BEA3D1 /* SecondPopViewController.m */,
+				09B4A5E11C511DC300BEA3D1 /* ChangeCityViewController.h */,
+				09B4A5E21C511DC300BEA3D1 /* ChangeCityViewController.m */,
+				09B4A5E31C511DC300BEA3D1 /* ChangeCityViewController.xib */,
 				09B4A5DB1C51118E00BEA3D1 /* SecondPopViewController.xib */,
 				09B4A5B61C50EB8400BEA3D1 /* PopViewController.h */,
 				09B4A5B71C50EB8400BEA3D1 /* PopViewController.m */,
@@ -299,6 +307,7 @@
 				405209D21B12E4DB00837D23 /* Images.xcassets in Resources */,
 				09B4A5DD1C51118E00BEA3D1 /* SecondPopViewController.xib in Resources */,
 				09B4A5CB1C50F09E00BEA3D1 /* cityGroups.plist in Resources */,
+				09B4A5E51C511DC300BEA3D1 /* ChangeCityViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +327,7 @@
 			files = (
 				09B4A5E01C51153100BEA3D1 /* CItyGroupModel.m in Sources */,
 				09B4A5BB1C50EC7900BEA3D1 /* PopView.m in Sources */,
+				09B4A5E41C511DC300BEA3D1 /* ChangeCityViewController.m in Sources */,
 				09B4A5B81C50EB8400BEA3D1 /* PopViewController.m in Sources */,
 				405209CA1B12E4DB00837D23 /* AppDelegate.m in Sources */,
 				09B4A5AD1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m in Sources */,
