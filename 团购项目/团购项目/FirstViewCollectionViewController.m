@@ -9,6 +9,8 @@
 #import "FirstViewCollectionViewController.h"
 #import "NavItem.h"
 #import "PopViewController.h"
+#import "SecondPopViewController.h"
+#import "CItyGroupModel.h"
 @interface FirstViewCollectionViewController ()
 {
     UIBarButtonItem *firstItem;
@@ -37,8 +39,13 @@ static NSString * const reuseIdentifier = @"Cell";
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    CItyGroupModel *md = [[CItyGroupModel alloc]init];
+    NSArray *arr = [md getModelArray];
+    for (CItyGroupModel *md in arr) {
+        NSLog(@"%@",md.tittle);
+    }
 }
+
 #pragma mark - 创建导航栏
 -(void)creatNavBar
 {
@@ -67,21 +74,36 @@ static NSString * const reuseIdentifier = @"Cell";
 }
 -(void)secondClick
 {
-    [self creatPoper];
+    [self creatSecondPopVer];
 }
 -(void)thirdClick
 {
+    [self creatThirdPopVer];
     NSLog(@"第三个tabBar点击");
     
 }
-#pragma mark - 创建下拉菜单
+#pragma mark - 第一个创建下拉菜单
 -(void)creatPoper
 {
     PopViewController *popVc = [[PopViewController alloc]init];
     UIPopoverController *pop = [[UIPopoverController alloc]initWithContentViewController:popVc];
     [pop presentPopoverFromBarButtonItem:firstItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
-
+#pragma mark - 第二个创建下拉菜单
+-(void)creatSecondPopVer
+{
+    SecondPopViewController *secondPopVC = [SecondPopViewController new];
+    UIPopoverController *popVC = [[UIPopoverController alloc]initWithContentViewController:secondPopVC];
+    [popVC presentPopoverFromBarButtonItem:secondItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    CItyGroupModel *cityModel = [CItyGroupModel new];
+    [cityModel getModelArray];
+    
+}
+#pragma mark - 第三个个创建下拉菜单
+-(void)creatThirdPopVer
+{
+    
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
