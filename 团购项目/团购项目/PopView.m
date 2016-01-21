@@ -11,7 +11,8 @@
 @interface PopView ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *leftTabView;
 @property (weak, nonatomic) IBOutlet UITableView *rightTabView;
-@property(strong,nonatomic) CategorlyModel *selectModel;
+//@property(strong,nonatomic) CategorlyModel *selectModel;
+@property (nonatomic,assign) NSInteger selectRow;//记录当前左侧列表选中的行号
 @end
 @implementation PopView
 +(PopView *)makePopView
@@ -19,15 +20,15 @@
     return [[[NSBundle mainBundle]loadNibNamed:@"popView" owner:self options:nil]lastObject];
 }
 
-#pragma Mark---tabView
+#pragma Mark---tabView delegate
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView == _leftTabView) {
-        return _categoryArr.count;
+        return [self.dataSource numberOfRowsInLeftTable:self];
     }
     else
     {
-        return _selectModel.subcategories.count;
+        return [self.dataSource popView:self subDataForRow:_selectRow].count;//拿到左侧选中行的数组，返回一个count
     }
 }
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -43,19 +44,18 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
         }
-        CategorlyModel *model = [_categoryArr objectAtIndex:indexPath.row];
-        cell.textLabel.text = model.name;
-        NSString *imageName = model.small_icon;
+        cell.textLabel.text = [self.dataSource popView:self tittleForRow:indexPath.row];
+        NSString *imageName = [self.dataSource popView:self imageForRow:indexPath.row];
         cell.imageView.image = [UIImage imageNamed:imageName];
-        if (model.subcategories.count) {
-            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        NSArray *subDataArray = [self.dataSource popView:self subDataForRow:indexPath.row];
+        if (subDataArray.count)
+        {
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;//带右侧的箭头
         }
         else
         {
             cell.accessoryType = UITableViewCellAccessoryNone;
         }
-        
-        
         return cell;
     }
     else
@@ -65,14 +65,14 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:str];
         }
-        cell.textLabel.text = _selectModel.subcategories[indexPath.row];
+        cell.textLabel.text = [self.dataSource popView:self subDataForRow:_selectRow][indexPath.row] ;
         return cell;
     }
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView == _leftTabView) {
-        _selectModel = [_categoryArr objectAtIndex:indexPath.row];
+        self.selectRow = indexPath.row;//记录选中的行（左侧）
         [_rightTabView reloadData];
     }
     
