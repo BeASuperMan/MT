@@ -74,6 +74,21 @@
     if (tableView == _leftTabView) {
         self.selectRow = indexPath.row;//记录选中的行（左侧）
         [_rightTabView reloadData];
+        
+        if ([self.delegate respondsToSelector:@selector(popView:didSelectRowAtLeftTable:)]) {
+            //进一步实现  如果没有子数据，直接发送通知
+            [self.delegate popView:self didSelectRowAtLeftTable:indexPath.row];
+            
+        }
+
+        
+    }
+    else
+    {
+        if ([self.delegate respondsToSelector:@selector(popView:didSelectRowAtRightTable:)]) {
+            //
+            [self.delegate popView:self didSelectRowAtRightTable:indexPath.row];
+        }
     }
     
 }

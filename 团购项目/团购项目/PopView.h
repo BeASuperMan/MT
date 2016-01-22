@@ -32,6 +32,12 @@
 
 @end
 
+@protocol PopViewDelegate <NSObject>
+
+-(void)popView:(PopView *)popView didSelectRowAtLeftTable:(int)row;//当选中左侧列表
+-(void)popView:(PopView *)popView didSelectRowAtRightTable:(int)row;//当选中右侧列表
+@end
+
 @interface PopView : UIView
 
 @property(nonatomic,strong) NSArray *categoryArr;
@@ -42,6 +48,8 @@
  */
 
 @property(nonatomic,assign)id<PopViewDataSource> dataSource;
+@property(nonatomic,assign)id<PopViewDelegate> delegate;
+
 +(PopView*)makePopView;
 
 @end

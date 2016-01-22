@@ -11,6 +11,8 @@
 #import "PopViewController.h"
 #import "SecondPopViewController.h"
 #import "CItyGroupModel.h"
+
+#import "CategorlyModel.h"
 @interface FirstViewCollectionViewController ()
 {
     UIBarButtonItem *firstItem;
@@ -28,6 +30,10 @@ static NSString * const reuseIdentifier = @"Cell";
     UICollectionViewFlowLayout *layOut = [[UICollectionViewFlowLayout alloc]init];
     return [self initWithCollectionViewLayout:layOut];
 }
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter]removeObserver:self];//把当前观察者移除
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.collectionView.backgroundColor = [UIColor whiteColor];
@@ -38,12 +44,20 @@ static NSString * const reuseIdentifier = @"Cell";
     
     // Register cell classes
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
-    
-//    CItyGroupModel *md = [[CItyGroupModel alloc]init];
-//    NSArray *arr = [md getModelArray];
-//    for (CItyGroupModel *md in arr) {
-//        NSLog(@"%@",md.tittle);
-//    }
+    //注册观察者
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(categoryChange:) name:@"categoryDidChanged" object:nil];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(subCategoryDidChanged:) name:@"subCategoryDidChanged" object:nil];
+
+
+}
+- (void)categoryChange:(NSNotification*)noti{
+    CategorlyModel *md = (CategorlyModel*)noti.userInfo[@"categoryModel"];
+    NSLog(@"左表：%@",md.name);
+}
+- (void)subCategoryDidChanged:(NSNotification*)noti{
+    CategorlyModel *md = (CategorlyModel*)noti.userInfo[@"categoryModel"];
+    NSString *str = noti.userInfo[@"subCategoryName"];
+    NSLog(@"左——%@——右——%@",md.name,str);
 }
 
 #pragma mark - 创建导航栏
