@@ -11,13 +11,16 @@
 #import "PopViewController.h"
 #import "SecondPopViewController.h"
 #import "CItyGroupModel.h"
-
 #import "CategorlyModel.h"
-@interface FirstViewCollectionViewController ()
+#import "DPAPI.h"
+@interface FirstViewCollectionViewController ()<DPRequestDelegate>
 {
     UIBarButtonItem *firstItem;
     UIBarButtonItem *secondItem;
     UIBarButtonItem *thirdItem;
+    
+    NSString *_selectedCityName;//选中的城市
+    NSString *_selectedCategory;//选中的子数据，则不发送网络请求
 }
 
 @end
@@ -47,17 +50,52 @@ static NSString * const reuseIdentifier = @"Cell";
     //注册观察者
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(categoryChange:) name:@"categoryDidChanged" object:nil];
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(subCategoryDidChanged:) name:@"subCategoryDidChanged" object:nil];
-
-
+    //城市名称
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(cityChanged:) name:@"cityDidChanged" object:nil];
 }
 - (void)categoryChange:(NSNotification*)noti{
     CategorlyModel *md = (CategorlyModel*)noti.userInfo[@"categoryModel"];
     NSLog(@"左表：%@",md.name);
+    //    发送网络请求
+    [self creatRequest];
 }
 - (void)subCategoryDidChanged:(NSNotification*)noti{
     CategorlyModel *md = (CategorlyModel*)noti.userInfo[@"categoryModel"];
-    NSString *str = noti.userInfo[@"subCategoryName"];
-    NSLog(@"左——%@——右——%@",md.name,str);
+    NSString *selectedSubName = noti.userInfo[@"subCategoryName"];
+    NSLog(@"左——%@——右——%@",md.name,selectedSubName);
+//    发送网络请求
+    if (!md.subcategories.count) {
+        _selectedCategory = md.name;//如果没有子数据，直接网络请求
+    }
+    else
+    {
+        if ([selectedSubName isEqualToString:@"全部"]) {
+            _selectedCategory = selectedSubName;
+        }
+    }
+    [self creatRequest];
+}
+-(void)cityChanged:(NSNotification*)noti
+{
+    _selectedCityName = noti.userInfo[@"cityName"];
+    [self creatRequest];
+}
+#pragma mark - 网络请求
+-(void)creatRequest
+{
+    DPAPI *api = [DPAPI new];
+    NSMutableDictionary *params = [NSMutableDictionary new];
+    [params setValue:_selectedCityName forKey:@"city"];
+    [params setValue:_selectedCategory forKey:@"category"];
+    [api requestWithURL:@"v1/deal/find_deals" params:params delegate:self];
+}
+-(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
+{
+    NSLog(@"%@",result);
+}
+-(void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    NSLog(@"%@",error);
 }
 
 #pragma mark - 创建导航栏

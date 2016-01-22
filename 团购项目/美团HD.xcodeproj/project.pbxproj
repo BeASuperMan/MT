@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		09A04DE41C527E50001D4425 /* DPAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A04DE01C527E50001D4425 /* DPAPI.m */; };
+		09A04DE51C527E50001D4425 /* DPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 09A04DE31C527E50001D4425 /* DPRequest.m */; };
 		09B4A5AD1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5AC1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m */; };
 		09B4A5B01C50DF5000BEA3D1 /* MyNavController.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5AF1C50DF5000BEA3D1 /* MyNavController.m */; };
 		09B4A5B31C50E13200BEA3D1 /* NavItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 09B4A5B21C50E13200BEA3D1 /* NavItem.m */; };
@@ -44,6 +46,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09A04DDF1C527E50001D4425 /* DPAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAPI.h; sourceTree = "<group>"; };
+		09A04DE01C527E50001D4425 /* DPAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAPI.m; sourceTree = "<group>"; };
+		09A04DE11C527E50001D4425 /* DPConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPConstants.h; sourceTree = "<group>"; };
+		09A04DE21C527E50001D4425 /* DPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPRequest.h; sourceTree = "<group>"; };
+		09A04DE31C527E50001D4425 /* DPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPRequest.m; sourceTree = "<group>"; };
 		09B4A5AB1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FirstViewCollectionViewController.h; path = ../FirstViewCollectionViewController.h; sourceTree = "<group>"; };
 		09B4A5AC1C50DD4E00BEA3D1 /* FirstViewCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FirstViewCollectionViewController.m; path = ../FirstViewCollectionViewController.m; sourceTree = "<group>"; };
 		09B4A5AE1C50DF5000BEA3D1 /* MyNavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyNavController.h; path = ../MyNavController.h; sourceTree = "<group>"; };
@@ -105,6 +112,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09A04DDE1C527E50001D4425 /* dianpingapi */ = {
+			isa = PBXGroup;
+			children = (
+				09A04DDF1C527E50001D4425 /* DPAPI.h */,
+				09A04DE01C527E50001D4425 /* DPAPI.m */,
+				09A04DE11C527E50001D4425 /* DPConstants.h */,
+				09A04DE21C527E50001D4425 /* DPRequest.h */,
+				09A04DE31C527E50001D4425 /* DPRequest.m */,
+			);
+			path = dianpingapi;
+			sourceTree = "<group>";
+		};
 		09B4A5C01C50EF7500BEA3D1 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +161,7 @@
 		09B4A5C21C50EF7500BEA3D1 /* Utilitys */ = {
 			isa = PBXGroup;
 			children = (
+				09A04DDE1C527E50001D4425 /* dianpingapi */,
 				09B4A5C41C50F09E00BEA3D1 /* PlistData */,
 			);
 			path = Utilitys;
@@ -348,8 +368,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09A04DE41C527E50001D4425 /* DPAPI.m in Sources */,
 				09B4A5E01C51153100BEA3D1 /* CItyGroupModel.m in Sources */,
 				09B4A5BB1C50EC7900BEA3D1 /* PopView.m in Sources */,
+				09A04DE51C527E50001D4425 /* DPRequest.m in Sources */,
 				09B4A5F81C513F5B00BEA3D1 /* Cities.m in Sources */,
 				09B4A5E41C511DC300BEA3D1 /* ChangeCityViewController.m in Sources */,
 				09B4A5B81C50EB8400BEA3D1 /* PopViewController.m in Sources */,

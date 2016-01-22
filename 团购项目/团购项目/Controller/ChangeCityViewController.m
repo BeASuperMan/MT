@@ -92,6 +92,13 @@
                 self.searchResultVC.view.hidden = YES;
     }
 }
+#pragma mark - 通知中心
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+        CItyGroupModel *model = [_dataArray objectAtIndex: indexPath.section];
+    [[NSNotificationCenter defaultCenter]postNotificationName:@"cityDidChanged" object:nil userInfo:@{@"cityName":model.cities[indexPath.row]}];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 #pragma mark - 创建搜索结果控制器
 - (SearchCityResultViewController *)searchResultVC{
     //懒加在
